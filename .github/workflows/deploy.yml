@@ -9,48 +9,25 @@ permissions:
 concurrency:
   group: "pages"
   cancel-in-progress: true
+
 jobs:
-  upload:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./src   # <<< PUBLICA A PASTA SRC DIRETO
   deploy:
-    needs: upload
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
-name: Deploy to GitHub Pages
-on:
-  push:
-    branches: [ main ]
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-jobs:
-  upload:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/upload-pages-artifact@v3
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact (publish SRC)
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: ./src   # <<< PUBLICA A PASTA SRC DIRETO
-  deploy:
-    needs: upload
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
+          path: ./src   # estamos publicando a pasta src direto
+
+      - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
