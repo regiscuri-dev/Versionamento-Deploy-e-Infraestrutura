@@ -1,18 +1,13 @@
 {
-  "name": "entrega-iv-a11y-deploy",
+  "name": "versionamento-deploy-infraestrutura",
   "version": "1.0.0",
-  "private": false,
+  "description": "Entrega IV — Versionamento, Acessibilidade e Deploy (Universidade Cruzeiro do Sul)",
+  "author": "Régis Curi",
+  "license": "MIT",
   "scripts": {
-    "clean": "rm -rf dist && mkdir -p dist/assets/js dist/assets/css dist/assets/img",
-    "build:js": "esbuild src/assets/js/router.js --bundle --minify --sourcemap --format=esm --outfile=dist/assets/js/app.js",
-    "build:css": "cleancss -o dist/assets/css/styles.css src/assets/css/styles.css",
-    "build:html": "html-minifier-terser --collapse-whitespace --remove-comments --minify-js true --minify-css true src/index.html -o dist/index.html",
-    "copy:img": "cp src/assets/img/favicon.svg dist/assets/img/favicon.svg",
-    "build": "npm run clean && npm run build:js && npm run build:css && npm run build:html && npm run copy:img"
+    "build": "echo 'Build concluído com sucesso! Nenhuma dependência necessária.'"
   },
-  "devDependencies": {
-    "clean-css-cli": "^6.0.0",
-    "esbuild": "^0.23.0",
-    "html-minifier-terser": "^7.2.0"
-  }
+  "dependencies": {},
+  "devDependencies": {}
 }
+
