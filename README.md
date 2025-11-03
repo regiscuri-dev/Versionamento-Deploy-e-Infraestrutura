@@ -1,3 +1,4 @@
+Teste deploy
 [README.md](https://github.com/user-attachments/files/23294060/README.md)
 # Entrega IV — Versionamento, Acessibilidade e Deploy
 
